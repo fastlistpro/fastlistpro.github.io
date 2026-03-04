@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FastListPro - Monthly Cash Drawing</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:#0a0a1a;color:#e0e0e0;overflow-x:hidden}
+.top-fix-bar{background:rgba(26,10,46,0.9);padding:20px;text-align:center;border-bottom:1px solid rgba(255,215,0,0.3);position:relative;z-index:999}
+.hero{background:linear-gradient(135deg,#1a0a2e 0%,#0d1b3e 50%,#1a0a2e 100%);padding:60px 20px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,215,0,0.03) 0%,transparent 50%);animation:pulse 8s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.badge{display:inline-block;background:linear-gradient(135deg,#ffd700,#ff8c00);color:#1a0a2e;padding:8px 24px;border-radius:50px;font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:2px;margin-bottom:20px}
+h1{font-size:clamp(28px,5vw,52px);font-weight:900;background:linear-gradient(135deg,#fff 30%,#ffd700 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.2;margin-bottom:12px}
+.subtitle{font-size:clamp(16px,2.5vw,22px);color:#b0b0d0;max-width:650px;margin:0 auto 30px;line-height:1.6}
+.prize-showcase{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:30px auto;max-width:800px}
+.prize-card{background:linear-gradient(145deg,rgba(255,215,0,0.1),rgba(255,140,0,0.05));border:2px solid rgba(255,215,0,0.3);border-radius:16px;padding:20px 16px;min-width:120px;flex:1;text-align:center;transition:transform 0.3s}
+.prize-rank{font-size:14px;color:#ffd700;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.prize-amount{font-size:clamp(28px,3.5vw,42px);font-weight:900;color:#ffd700;text-shadow:0 0 20px rgba(255,215,0,0.3)}
+.prize-label{font-size:13px;color:#a0a0c0;margin-top:4px}
+.section{padding:50px 20px;max-width:900px;margin:0 auto}
+.section-title{font-size:clamp(22px,3.5vw,34px);font-weight:800;text-align:center;margin-bottom:12px;color:#fff}
+.mechanic-box{background:linear-gradient(145deg,rgba(123,47,247,0.12),rgba(75,0,130,0.06));border:2px solid rgba(123,47,247,0.3);border-radius:20px;padding:40px 30px;max-width:700px;margin:0 auto 40px;text-align:center}
+.mechanic-title{font-size:24px;font-weight:800;color:#ffd700;margin-bottom:16px}
+.mechanic-desc{font-size:16px;color:#c0c0d8;line-height:1.8;margin-bottom:20px}
+.mechanic-highlight{background:linear-gradient(135deg,#ffd700,#ff8c00);color:#1a0a2e;padding:14px 28px;border-radius:12px;font-size:20px;font-weight:800;display:inline-block;margin:10px 0}
+.mechanic-highlight-purple{background:linear-gradient(135deg,#7b2ff7,#4a0e8f);color:#ffd700;padding:14px 28px;border-radius:12px;font-size:18px;font-weight:800;display:inline-block;margin:10px 0}
+.ticket-visual{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:30px auto;max-width:600px}
+.ticket-example{background:linear-gradient(145deg,rgba(255,215,0,0.08),rgba(255,140,0,0.04));border:1px solid rgba(255,215,0,0.2);border-radius:12px;padding:20px;flex:1;min-width:160px;text-align:center}
+.ticket-example.qualify{border-color:rgba(123,47,247,0.4);background:linear-gradient(145deg,rgba(123,47,247,0.1),rgba(75,0,130,0.05))}
+.ticket-refs{font-size:28px;font-weight:900;color:#ffd700}.ticket-arrow{font-size:20px;color:#7b2ff7;margin:6px 0}
+.ticket-entries{font-size:16px;font-weight:700;color:#fff}.ticket-label{font-size:12px;color:#a0a0c0;margin-top:4px}
+.how-it-works{background:linear-gradient(180deg,rgba(138,43,226,0.06) 0%,transparent 100%);padding:50px 20px}
+.steps{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;max-width:900px;margin:0 auto}
+.step{text-align:center;flex:1;min-width:160px;max-width:200px}.step-num{width:50px;height:50px;background:linear-gradient(135deg,#7b2ff7,#4a0e8f);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:#ffd700;margin:0 auto 14px;box-shadow:0 0 20px rgba(123,47,247,0.3)}
+.step-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:6px}.step-desc{font-size:13px;color:#a0a0c0;line-height:1.5}
+.cta-section{text-align:center;padding:80px 20px;background:linear-gradient(180deg,transparent,rgba(255,215,0,0.03))}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,#ffd700,#ff8c00);color:#1a0a2e;padding:18px 50px;border-radius:50px;font-size:20px;font-weight:800;border:none;cursor:pointer;text-transform:uppercase;letter-spacing:1px;box-shadow:0 8px 30px rgba(255,215,0,0.3);transition:transform 0.3s}
+.cta-btn:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 12px 40px rgba(255,215,0,0.45)}
+.bonus-strip{background:linear-gradient(90deg,#7b2ff7,#4a0e8f,#7b2ff7);padding:14px;text-align:center;font-weight:700;font-size:15px;color:#ffd700;letter-spacing:1px}
+.footer{text-align:center;padding:30px 20px;font-size:13px;color:#606080;border-top:1px solid rgba(255,255,255,0.05)}
+</style>
+</head>
+<body>
+
+<div class="bonus-strip">🎟️ 1 REFERRAL = 1 TICKET • 5 WINNERS DRAWN MONTHLY!</div>
+
+<div class="top-fix-bar">
+    <button onclick="goToRegister()" class="cta-btn">🚀 Create My Free Account</button>
+</div>
+
+<div class="hero">
+    <div class="badge">🏆 Monthly Cash Drawing</div>
+    <h1>Refer Friends.<br>Earn Lottery Tickets.<br>Win Real Cash.</h1>
+    <p class="subtitle">Every single referral earns you a lottery ticket. Bring in at least 5 to qualify for the monthly cash drawing — 5 winners are drawn each month!</p>
+
+    <div class="prize-showcase">
+        <div class="prize-card"><div class="prize-rank">🥇 1st Place</div><div class="prize-amount">$10</div><div class="prize-label">Cash Prize</div></div>
+        <div class="prize-card"><div class="prize-rank">🥈 2nd Place</div><div class="prize-amount">$5</div><div class="prize-label">Cash Prize</div></div>
+        <div class="prize-card"><div class="prize-rank">🥉 3rd Place</div><div class="prize-amount">$3</div><div class="prize-label">Cash Prize</div></div>
+        <div class="prize-card"><div class="prize-rank">4th Place</div><div class="prize-amount">$2</div><div class="prize-label">Cash Prize</div></div>
+        <div class="prize-card"><div class="prize-rank">5th Place</div><div class="prize-amount">$1</div><div class="prize-label">Cash Prize</div></div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="mechanic-box">
+        <div class="mechanic-title">🎟️ How the Drawing Works</div>
+        <div class="mechanic-desc">Every person you refer earns you <strong style="color:#ffd700">1 lottery ticket</strong>. But there's one rule:</div>
+        <div class="mechanic-highlight">1 Referral = 1 Lottery Ticket</div>
+        <div class="mechanic-highlight-purple">⚡ Minimum 5 Referrals to Qualify</div>
+    </div>
+
+    <div class="ticket-visual">
+        <div class="ticket-example"><div class="ticket-refs">3 Referrals</div><div class="ticket-arrow">↓</div><div class="ticket-entries">3 Tickets</div><div class="ticket-label">❌ Not yet eligible</div></div>
+        <div class="ticket-example qualify"><div class="ticket-refs">5 Referrals</div><div class="ticket-arrow">↓</div><div class="ticket-entries">5 Tickets</div><div class="ticket-label">✅ Qualified!</div></div>
+        <div class="ticket-example qualify"><div class="ticket-refs">20 Referrals</div><div class="ticket-arrow">↓</div><div class="ticket-entries">20 Tickets</div><div class="ticket-label">🔥 4x the chances!</div></div>
+    </div>
+</div>
+
+<div class="how-it-works">
+    <h2 class="section-title">How It Works</h2>
+    <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-title">Join Free</div><div class="step-desc">Create your free account. Get your unique referral link instantly.</div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-title">Share Your Link</div><div class="step-desc">Use our banners and splash pages to promote.</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-title">Earn Tickets</div><div class="step-desc">Each referral = 1 ticket. Get to 5 referrals to qualify.</div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-title">Win Cash</div><div class="step-desc">5 winners are drawn monthly. More tickets = better odds!</div></div>
+    </div>
+</div>
+
+<div class="cta-section">
+    <h2 class="section-title">5 Winners Drawn Every Month</h2>
+    <button onclick="goToRegister()" class="cta-btn">🚀 Create My Free Account</button>
+    <p style="margin-top:14px;font-size:14px;color:#a0a0c0">No credit card required • Instant access</p>
+</div>
+
+<div class="footer">FastListPro — Advertising For Ambitious Professionals<br>© 2026 FastListPro. All rights reserved.</div>
+
+<script>
+function goToRegister() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const refId = urlParams.get('rid') || urlParams.get('id') || '1';
+    window.location.assign("https://fastlistpro.com/auth?tab=signup&rid=" + refId);
+}
+</script>
+
+<script>(function(){var r=new URLSearchParams(window.location.search).get("rid")||"";var u=r?"https://fastlistpro.com/?rid="+encodeURIComponent(r):"https://fastlistpro.com";document.querySelectorAll('a[href*="#REFURL#"]').forEach(function(a){a.href=u});var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);while(w.nextNode()){if(w.currentNode.textContent.indexOf("#REFURL#")>-1){w.currentNode.textContent=w.currentNode.textContent.replace(/#REFURL#/gi,u)}}document.querySelectorAll('a[href*="#FIRSTNAME#"],a[href*="#USERNAME#"],a[href*="#AFFILIATEID#"],a[href*="#SITENAME#"]').forEach(function(a){a.href=a.href.replace(/#FIRSTNAME#/gi,"").replace(/#USERNAME#/gi,"").replace(/#SITENAME#/gi,"FastListPro").replace(/#AFFILIATEID#/gi,r)})})()</script></body>
+</html>
+
+<!-- ═══ MARCH RECRUIT RALLY — Championship Achievement Blocks ═══ -->
+<div style="max-width:900px;margin:40px auto;padding:0 20px;">
+
+<div style="background:linear-gradient(135deg,rgba(212,168,67,0.15),rgba(75,0,130,0.1));border:2px solid rgba(212,168,67,0.4);border-radius:20px;overflow:hidden;margin-bottom:30px;">
+<div style="background:linear-gradient(135deg,#d4a843,#b8860b);padding:18px 24px;text-align:center;">
+<h2 style="margin:0;color:#1a0a2e;font-size:1.6em;font-weight:900;letter-spacing:1px;">🏆 MARCH RECRUIT RALLY — Referral Contest</h2>
+<p style="margin:6px 0 0;color:rgba(26,10,46,0.7);font-size:0.95em;font-weight:600;">March 6 – April 4, 2026</p>
+</div>
+<div style="padding:24px;">
+<div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:20px;">
+<div style="background:rgba(255,255,255,0.05);border:1px solid rgba(212,168,67,0.3);border-radius:12px;padding:16px 20px;flex:1;min-width:240px;text-align:center;">
+<p style="color:#d4a843;font-weight:800;font-size:1.1em;margin:0 0 4px;">🥇 1st Place</p>
+<p style="color:#fff;font-weight:700;margin:0;">$25 Cash + Elite Lifetime Status + 2 Solo Ads</p>
+</div>
+<div style="background:rgba(255,255,255,0.05);border:1px solid rgba(192,192,192,0.3);border-radius:12px;padding:16px 20px;flex:1;min-width:240px;text-align:center;">
+<p style="color:#c0c0c0;font-weight:800;font-size:1.1em;margin:0 0 4px;">🥈 2nd Place</p>
+<p style="color:#fff;font-weight:700;margin:0;">$15 Cash + Ad Formatter + Solo Ad</p>
+</div>
+<div style="background:rgba(255,255,255,0.05);border:1px solid rgba(205,127,50,0.3);border-radius:12px;padding:16px 20px;flex:1;min-width:240px;text-align:center;">
+<p style="color:#cd7f32;font-weight:800;font-size:1.1em;margin:0 0 4px;">🥉 3rd Place</p>
+<p style="color:#fff;font-weight:700;margin:0;">$5 Cash + 5 Login Ads + 200 Credits</p>
+</div>
+</div>
+
+<div style="background:rgba(212,168,67,0.1);border:2px dashed #d4a843;border-radius:12px;padding:18px;text-align:center;">
+<p style="font-size:1.15em;font-weight:800;color:#d4a843;margin:0;">🎯 Milestone Bounty</p>
+<p style="color:#fff;font-size:1em;margin:8px 0 0;font-weight:600;">Refer <strong style="color:#d4a843;">Member #600</strong> and win an instant <strong style="color:#d4a843;">$5.00 Cash Bonus!</strong></p>
+</div>
+</div>
+</div>
+
+</div>
+<!-- ═══ END MARCH RECRUIT RALLY ═══ -->
