@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FastListPro - Grow Your List Fast</title>
+<link href="https://fonts.googleapis.com/css2?family=Georgia&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body,html{height:100%;font-family:"Montserrat",sans-serif;}
+.bg{
+  background:linear-gradient(135deg,#0d0518 0%,#1a0a2e 30%,#2d1854 60%,#1a0a2e 100%);
+  min-height:100vh;display:flex;justify-content:center;align-items:center;
+  position:relative;overflow:hidden;
+}
+.bg::before{
+  content:"";position:absolute;top:0;left:0;right:0;bottom:0;
+  background:radial-gradient(ellipse at 30% 20%,rgba(180,140,60,0.08) 0%,transparent 50%),
+             radial-gradient(ellipse at 70% 80%,rgba(180,140,60,0.05) 0%,transparent 50%);
+}
+.card{
+  position:relative;z-index:1;width:90%;max-width:620px;
+  border:2px solid rgba(180,140,60,0.4);border-radius:24px;
+  background:linear-gradient(180deg,rgba(26,10,46,0.95),rgba(13,5,24,0.98));
+  box-shadow:0 0 60px rgba(180,140,60,0.15),0 20px 40px rgba(0,0,0,0.5);
+  padding:0;overflow:hidden;
+}
+.card-header{
+  background:linear-gradient(90deg,rgba(180,140,60,0.15),rgba(180,140,60,0.05));
+  border-bottom:1px solid rgba(180,140,60,0.3);
+  padding:24px 32px;text-align:center;
+}
+.logo-text{
+  font-family:Georgia,serif;font-size:32px;font-weight:700;
+  background:linear-gradient(135deg,#d4a843,#f0d68a,#b48c3c);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  letter-spacing:1px;
+}
+.logo-sub{color:rgba(255,255,255,0.6);font-size:12px;letter-spacing:3px;text-transform:uppercase;margin-top:4px;}
+.card-body{padding:40px 32px;text-align:center;}
+.headline{
+  font-size:28px;font-weight:800;color:#fff;line-height:1.3;margin-bottom:8px;
+}
+.headline span{
+  background:linear-gradient(135deg,#d4a843,#f0d68a);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.subtitle{color:rgba(255,255,255,0.7);font-size:15px;line-height:1.6;margin-bottom:32px;}
+.features{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;}
+.feature{
+  background:rgba(180,140,60,0.08);border:1px solid rgba(180,140,60,0.2);
+  border-radius:12px;padding:16px;width:160px;text-align:center;
+}
+.feature-icon{font-size:28px;margin-bottom:8px;}
+.feature-label{color:#d4a843;font-size:13px;font-weight:600;}
+.cta-btn{
+  display:inline-block;padding:16px 48px;
+  background:linear-gradient(135deg,#b48c3c,#d4a843,#f0d68a,#d4a843);
+  background-size:200% 200%;
+  color:#1a0a2e;font-size:18px;font-weight:800;text-transform:uppercase;
+  text-decoration:none;border-radius:50px;letter-spacing:2px;
+  box-shadow:0 4px 20px rgba(180,140,60,0.4);
+  transition:all 0.3s ease;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 30px rgba(180,140,60,0.6);}
+.footer-note{color:rgba(255,255,255,0.4);font-size:11px;margin-top:24px;}
+@media(max-width:575px){
+  .card-body{padding:24px 16px;}
+  .headline{font-size:22px;}
+  .features{flex-direction:column;align-items:center;}
+  .cta-btn{padding:14px 32px;font-size:15px;}
+}
+</style>
+</head>
+<body>
+<div class="bg">
+<div class="card">
+  <div class="card-header">
+    <div class="logo-text">FastListPro</div>
+    <div class="logo-sub">Advertising for Ambitious Professionals</div>
+  </div>
+  <div class="card-body">
+    <h1 class="headline"><span>Grow Your List</span><br>Like Never Before</h1>
+    <p class="subtitle">Join thousands of marketers using the most powerful safelist platform to drive targeted traffic and build responsive email lists.</p>
+    <div class="features">
+      <div class="feature"><div class="feature-icon">🚀</div><div class="feature-label">Instant Traffic</div></div>
+      <div class="feature"><div class="feature-icon">💰</div><div class="feature-label">Earn Credits</div></div>
+      <div class="feature"><div class="feature-icon">👥</div><div class="feature-label">Build Downline</div></div>
+    </div>
+    <a href="#REFURL#" class="cta-btn">Join Free Today</a>
+    <p class="footer-note">100% Free To Join • No Credit Card Required</p>
+  </div>
+</div>
+</div>
+<script>(function(){var r=new URLSearchParams(window.location.search).get("rid")||"";var u=r?"https://fastlistpro.com/?rid="+encodeURIComponent(r):"https://fastlistpro.com";document.querySelectorAll('a[href*="#REFURL#"]').forEach(function(a){a.href=u});var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);while(w.nextNode()){if(w.currentNode.textContent.indexOf("#REFURL#")>-1){w.currentNode.textContent=w.currentNode.textContent.replace(/#REFURL#/gi,u)}}document.querySelectorAll('a[href*="#FIRSTNAME#"],a[href*="#USERNAME#"],a[href*="#AFFILIATEID#"],a[href*="#SITENAME#"]').forEach(function(a){a.href=a.href.replace(/#FIRSTNAME#/gi,"").replace(/#USERNAME#/gi,"").replace(/#SITENAME#/gi,"FastListPro").replace(/#AFFILIATEID#/gi,r)})})()</script></body>
+</html>
