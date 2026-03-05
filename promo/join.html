@@ -8,7 +8,7 @@
 (function(){
   var p=new URLSearchParams(window.location.search);
   var rid=p.get("rid")||"";
-  if(!rid||rid==="1")rid="admin";
+  if(!rid||rid==="1"||rid==="admin")rid="2";
   if(rid){
     document.cookie="flp_rid="+encodeURIComponent(rid)+";path=/;max-age=2592000;SameSite=Lax";
     try{localStorage.setItem("referral_id",rid)}catch(e){}
