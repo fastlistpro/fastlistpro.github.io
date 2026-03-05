@@ -180,7 +180,7 @@
   <div class="free-badge">✨ FREE To Join — 5,000 Bonus Credits</div>
   <h1 class="hero-subtitle">Get Paid to Read Emails.<br>Send Your Ads to Thousands.</h1>
   <p class="hero-desc">The only list-building platform with AI-powered tools, gamified rewards, and a community that actually reads your emails.</p>
-  <a href="https://fastlistpro.com/auth?tab=signup&rid=" class="cta-btn">Join Free Now →</a>
+  <a href="https://fastlistpro.com/auth?tab=signup&rid=admin" class="cta-btn">Join Free Now →</a>
 </div>
 
 <div class="features">
@@ -243,12 +243,27 @@
 <div class="bottom-cta">
   <h2>Ready to Start Earning?</h2>
   <p>Join today, claim your 5,000 bonus credits, and start sending your ads to engaged readers.</p>
-  <a href="https://fastlistpro.com/auth?tab=signup&rid=" class="cta-btn">Create My Free Account →</a>
+  <a href="https://fastlistpro.com/auth?tab=signup&rid=admin" class="cta-btn">Create My Free Account →</a>
 </div>
 
 <div class="footer">
   © 2026 FastListPro — Advertising For Ambitious Professionals
 </div>
 
-<script>(function(){var r=new URLSearchParams(window.location.search).get("rid")||"";if(!r||r==="1")r="admin";var u="https://fastlistpro.com/auth?tab=signup&rid="+encodeURIComponent(r);document.querySelectorAll('a[href*="#REFURL#"]').forEach(function(a){a.href=u});var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);while(w.nextNode()){if(w.currentNode.textContent.indexOf("#REFURL#")>-1){w.currentNode.textContent=w.currentNode.textContent.replace(/#REFURL#/gi,u)}}document.querySelectorAll('a[href*="#FIRSTNAME#"],a[href*="#USERNAME#"],a[href*="#AFFILIATEID#"],a[href*="#SITENAME#"]').forEach(function(a){a.href=a.href.replace(/#FIRSTNAME#/gi,"").replace(/#USERNAME#/gi,"").replace(/#SITENAME#/gi,"FastListPro").replace(/#AFFILIATEID#/gi,r)});document.querySelectorAll('a[href*="fastlistpro.com"]').forEach(function(a){if(a.id!=="flp-relaunch-bar")a.href=u})})()</script></body>
+<script>
+(function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  let rid = urlParams.get('rid') || 'admin';
+  if (rid === '1' || rid === '') rid = 'admin';
+
+  const signupUrl = "https://fastlistpro.com/auth?tab=signup&rid=" + encodeURIComponent(rid);
+
+  // Update all links that point to FastListPro to go straight to the signup page
+  document.querySelectorAll('a[href*="fastlistpro.com"]').forEach(link => {
+    link.href = signupUrl;
+  });
+})();
+</script>
+
+</body>
 </html>
