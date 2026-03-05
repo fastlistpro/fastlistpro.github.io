@@ -29,5 +29,15 @@ p{font-size:16px;line-height:1.8;}
 <a href="https://fastlistpro.com/auth?tab=signup&rid=" class="cta-button">👉 Join Now at FastListPro.com</a>
 </div>
 <div class="banner"><span class="icon">🚀</span>Don't Miss Out — Start Referring and WIN BIG!<span class="icon">🚀</span></div>
-<script>(function(){var r=new URLSearchParams(window.location.search).get("rid")||"";if(!r||r==="1")r="admin";var u="https://fastlistpro.com/auth?tab=signup&rid="+encodeURIComponent(r);document.querySelectorAll('a[href*="#REFURL#"]').forEach(function(a){a.href=u});var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);while(w.nextNode()){if(w.currentNode.textContent.indexOf("#REFURL#")>-1){w.currentNode.textContent=w.currentNode.textContent.replace(/#REFURL#/gi,u)}}document.querySelectorAll('a[href*="#FIRSTNAME#"],a[href*="#USERNAME#"],a[href*="#AFFILIATEID#"],a[href*="#SITENAME#"]').forEach(function(a){a.href=a.href.replace(/#FIRSTNAME#/gi,"").replace(/#USERNAME#/gi,"").replace(/#SITENAME#/gi,"FastListPro").replace(/#AFFILIATEID#/gi,r)});document.querySelectorAll('a[href*="fastlistpro.com"]').forEach(function(a){if(a.id!=="flp-relaunch-bar")a.href=u})})()</script></body>
+<script>
+(function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  let rid = urlParams.get('rid') || '2';
+  if (rid === '1' || rid === '') rid = '2';
+  const signupUrl = "https://fastlistpro.com/auth?tab=signup&rid=" + encodeURIComponent(rid);
+  document.querySelectorAll('a[href*="fastlistpro.com"]').forEach(link => {
+    if (link.id !== 'flp-relaunch-bar') link.href = signupUrl;
+  });
+})();
+</script></body>
 </html>
