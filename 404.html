@@ -6,18 +6,25 @@
 <style>body{margin:0;display:flex;align-items:center;justify-content:center;min-height:100vh;background:#1a1625;color:#fff;font-family:system-ui,sans-serif}p{font-size:18px}</style>
 <script>
 (function(){
-  var p=new URLSearchParams(window.location.search);
+  var loc=window.location;
+  var p=new URLSearchParams(loc.search);
   var rid=p.get("rid")||"";
+  var path=loc.pathname.toLowerCase();
   if(!rid||rid==="1"||rid==="admin")rid="2";
   if(rid){
     document.cookie="flp_rid="+encodeURIComponent(rid)+";path=/;max-age=2592000;SameSite=Lax";
     try{localStorage.setItem("referral_id",rid)}catch(e){}
   }
-  var dest="https://fastlistpro.com/auth?tab=signup&rid="+encodeURIComponent(rid);
+  var dest;
+  if(path.indexOf("join.php")!==-1||path.indexOf("join.html")!==-1){
+    dest="https://fastlistpro.com/auth?tab=signup&rid="+encodeURIComponent(rid);
+  } else {
+    dest="https://fastlistpro.com";
+  }
   window.location.replace(dest);
 })();
 </script>
-<meta http-equiv="refresh" content="2;url=https://fastlistpro.com/auth?tab=signup&rid=2">
+<meta http-equiv="refresh" content="3;url=https://fastlistpro.com">
 </head>
 <body><p>Redirecting to FastListPro…</p></body>
 </html>
